@@ -108,7 +108,7 @@ hdrs = [
 ]
 
 cc_library(
-    name = "netcdf",
+    name = "netcdf-c",
     srcs = [
         "liblib/nc_initialize.c",
         ":dispatch",
