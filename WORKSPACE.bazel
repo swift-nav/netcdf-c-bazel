@@ -1,0 +1,24 @@
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+
+http_archive(
+    name = "rules_swiftnav",
+    strip_prefix = "rules_swiftnav-a19f6c1651ca1d24b3e5f3b7174fd7435bf2cbe9",
+    url = "https://github.com/swift-nav/rules_swiftnav/archive/a19f6c1651ca1d24b3e5f3b7174fd7435bf2cbe9.tar.gz",
+)
+
+http_archive(
+    name = "zlib",
+    build_file = "@rules_swiftnav//third_party:zlib.BUILD",
+    strip_prefix = "zlib-1.2.13",
+    urls = [
+        "https://zlib.net/zlib-1.2.13.tar.gz",
+        "https://www.zlib.net/fossils/zlib-1.2.13.tar.gz"
+    ],
+)
+
+http_archive(
+    name = "hdf5",
+    build_file = "@rules_swiftnav//third_party:hdf5.BUILD",
+    strip_prefix = "hdf5-hdf5-1_12_2",
+    url = "https://github.com/HDFGroup/hdf5/archive/refs/tags/hdf5-1_12_2.tar.gz",
+)

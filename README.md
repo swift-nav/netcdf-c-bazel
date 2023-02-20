@@ -1,3 +1,24 @@
+This repository serves as a playground for experimenting with netcdf configuration. It provides a Dockerfile that can be used to build netcdf using CMake. This allows you to generate a minimal `config.h` header file that can be later embedded in bazel's BUILD file.
+
+# Running the container
+```
+docker build . -t netcdf
+docker run -i --rm -v ${PWD}/:/mnt/workspace netcdf
+```
+
+# Building netcdf using CMake
+```
+mkdir build
+cd build
+cmake .. \
+    -D"BUILD_SHARED_LIBS=OFF" \
+    -D"BUILD_UTILITIES=OFF" \
+    -D"ENABLE_DAP=OFF" \
+    -D"ENABLE_TESTS=OFF" \
+    -D"ENABLE_NCZARR=OFF"
+make
+```
+
 # Unidata NetCDF
 
 [![latest packaged version(s)](https://repology.org/badge/latest-versions/netcdf.svg)](https://repology.org/project/netcdf/badges)
