@@ -23,23 +23,23 @@ configure_file(
         "NC_HAS_NC4":       "1", # /*!< API version 4 support. */
         "NC_HAS_HDF4":      "0", # /*!< HDF4 support. */
         "NC_HAS_HDF5":      "1", # /*!< HDF5 support. */
-        "NC_HAS_SZIP":      "0", # /*!< szip support (HDF5 only) */
-        "NC_HAS_SZIP_WRITE": "0", # /*!< szip write support (HDF5 only) */
-        "NC_HAS_DAP2":      "1", # /*!< DAP2 support. */
-        "NC_HAS_DAP4":      "1", # /*!< DAP4 support. */
+        "NC_HAS_SZIP":      "1", # /*!< szip support (HDF5 only) */
+        "NC_HAS_SZIP_WRITE": "1", # /*!< szip write support (HDF5 only) */
+        "NC_HAS_DAP2":      "0", # /*!< DAP2 support. */
+        "NC_HAS_DAP4":      "0", # /*!< DAP4 support. */
         "NC_HAS_BYTERANGE": "0", # /*!< Byterange support. */
         "NC_HAS_DISKLESS":  "1", # /*!< diskless support. */
-        "NC_HAS_MMAP":      "0", # /*!< mmap support. */
+        "NC_HAS_MMAP":      "1", # /*!< mmap support. */
         "NC_HAS_JNA":       "0", # /*!< jna support. */
         "NC_HAS_PNETCDF":   "0", # /*!< PnetCDF support. */
         "NC_HAS_PARALLEL4": "0", # /*!< parallel IO support via HDF5 */
         "NC_HAS_PARALLEL":  "0", # /*!< parallel IO support via HDF5 and/or PnetCDF. */
         "NC_HAS_CDF5":          "1", # /*!< CDF5 support. */
-        "NC_HAS_ERANGE_FILL":   "0", # /*!< ERANGE_FILL Support. */
+        "NC_HAS_ERANGE_FILL":   "1", # /*!< ERANGE_FILL Support. */
         "NC_RELAX_COORD_BOUND": "1", # /*!< Always allow 0 counts in parallel I/O. */
         "NC_DISPATCH_VERSION":  "5", # /*!< Dispatch table version. */
         "NC_HAS_PAR_FILTERS":   "1", # /* Parallel I/O with filter support. */
-        "NC_HAS_NCZARR":        "1", # /*!< Parallel I/O with filter support. */
+        "NC_HAS_NCZARR":        "0", # /*!< Parallel I/O with filter support. */
         "NC_HAS_MULTIFILTERS":  "1", # /*!< Nczarr support. */
         "NC_HAS_LOGGING":       "0", # /*!< Logging support. */
         "NC_HAS_QUANTIZE":      "1", # /*!< Quantization support. */
@@ -552,10 +552,10 @@ are set when opening a binary file on Windows. */
 /* #undef HAVE_STRUCT_TIMESPEC */
 
 /* Define to 1 if you have the `H5Z_SZIP' function. */
-/* #undef HAVE_H5Z_SZIP */
+#define HAVE_H5Z_SZIP 1
 
 /* Define to 1 if you have libsz */
-/* #undef HAVE_SZ */
+#define HAVE_SZ 1
 
 /* Define to 1 if you have the <hdf5.h> header file. */
 #define HAVE_HDF5_H 1
@@ -669,7 +669,7 @@ are set when opening a binary file on Windows. */
 #define HAVE_STRCASECMP
 
 /* Define to 1 if you have the `strlcat' function. */
-#define HAVE_STRLCAT 1
+/* #undef HAVE_STRLCAT */
 
 /* Define to 1 if you have the `strtoll' function. */
 #define HAVE_STRTOLL 1
@@ -731,7 +731,7 @@ with zip */
 #define HDF5_SUPPORTS_PAR_FILTERS 1
 
 /* if true, HDF5 is at least version 1.10.5 and supports UTF8 paths */
-#define HDF5_UTF8_PATHS 1
+/* #undef HDF5_UTF8_PATHS */
 
 /* if true, include JNA bug fix */
 /* #undef JNA */
@@ -964,5 +964,6 @@ with zip */
 #include "ncconfigure.h"
 
 #endif
+
 EOF""",
 )

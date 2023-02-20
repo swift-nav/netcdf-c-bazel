@@ -11,6 +11,7 @@ docker run -i --rm -v ${PWD}/:/mnt/workspace netcdf
 mkdir build
 cd build
 cmake .. \
+    -DCMAKE_POSITION_INDEPENDENT_CODE=ON \
     -D"BUILD_SHARED_LIBS=OFF" \
     -D"BUILD_UTILITIES=OFF" \
     -D"ENABLE_DAP=OFF" \

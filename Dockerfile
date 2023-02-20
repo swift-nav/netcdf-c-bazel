@@ -1,6 +1,7 @@
-FROM alpine:3.14
+FROM debian:buster-slim
 
-RUN apk add make cmake bash clang binutils g++ hdf5-dev libexecinfo-dev
+RUN apt-get update\
+    && apt-get install -y make cmake clang binutils g++ libhdf5-dev
 
 WORKDIR /mnt/workspace
 
